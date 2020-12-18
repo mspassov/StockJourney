@@ -1,0 +1,169 @@
+.header {
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 15%;
+  margin: auto;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 2.5vw;
+  opacity: 1;
+  text-align: center;
+}
+
+.headerC {
+  font-size: 1.65vw;
+}
+
+
+.container {
+  position: absolute;
+  top: 60%;
+  left:50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}
+
+.myrow{
+    font-family: Comfortaa;
+    font-weight: Regular;
+    margin-top: 15px;
+
+}
+
+.myrow2{
+    font-family: Comfortaa;
+    font-weight: Regular;
+    margin-bottom: -15px;
+}
+
+.mycol{
+    font-family: Comfortaa;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1vw;
+
+}
+
+.mycol2{
+
+}
+
+.colFirst{
+    border-radius: 15px;
+    border: 1px solid #8DD3D7;
+    background-color: #8DD3D7;
+}
+
+h6{
+    text-align: center;
+    font-family: Comfortaa;
+    font-weight: bold;
+    font-size: 16pt !important;
+}
+
+.ticker{
+    text-align: center;
+}
+
+
+.rowLast:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 2px; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 0px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid #636262; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.fullPie{
+    font-family: Comfortaa;
+    font-size: 14pt;
+}
+
+.back {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18A0FB;
+  position: absolute;
+  top: 90%;
+  left: 5%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18A0FB;
+  border-radius: 5px;
+  border-color: #18a0fb;
+  text-align: center;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+
+  text-decoration: none;
+}
+
+.next {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18A0FB;
+  position: absolute;
+  border-color: #18A0FB;
+  top: 90%;
+  left: 85%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid;
+  border-color: #18A0FB;
+  border-radius: 5px;
+  text-align: center;
+
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.next:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+  text-decoration: none;
+}
+
+
+p {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+    color: grey;
+
+}
+
+
+.text{
+  bottom: 5%;
+  left: 37%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  color: rgb(0, 0, 0, 0.800000011920929);
+  font-size: 1.1vw;
+  opacity: 1;
+  position: absolute;
+  text-decoration: underline;
+
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html><html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+    <link href="{{ url_for('static', filename='questions.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <title>
+        Let's learn more about you!
+    </title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#" id="logo">StockJourney</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+              </div>
+        </nav>
+
+        <h1 class="header">Let's learn more about you!</h1>
+
+        <div class="container">
+            <form class="boxed" action="{{url_for('profilerecommend')}}" method="post">
+                <h2>I would like to withdraw my money in:</h2>
+                <input type="radio" checked="checked" name="question1" id="rb1" value="1">
+                <label for="rb1" class="btn btn-outline-info box1"> 1 - 5 years</label>
+
+                <input type="radio" name="question1" id="rb2" value="2">
+                <label for="rb2" class="btn btn-outline-info box2">6 - 10 years</label>
+
+                <input type="radio" name="question1" id="rb3" value="3">
+                <label for="rb3" class="btn btn-outline-info box3"> 11+ years</label>
+
+                <h2 class="secondQ">If my investments lost 50% of their value, I would:</h2>
+                <input type="radio" checked="checked" name="question2" id="rb1a" value="1">
+                <label for="rb1a" class="btn btn-outline-info box1"><b>Sell</b> all of my investments</label>
+
+                <input type="radio" name="question2" id="rb2a" value="2">
+                <label for="rb2a" class="btn btn-outline-info box2"><b>Sell</b> some of my investments</label>
+
+                <input type="radio" name="question2" id="rb3a" value="3">
+                <label for="rb3a" class="btn btn-outline-info box3"><b>Buy</b> more of the investment</label>
+
+                <h2 class="secondQ">My current and future income sources are:</h2>
+                <input type="radio" checked="checked" name="question3" id="rb1b" value="1">
+                <label for="rb1b" class="btn btn-outline-info box1">Unstable</label>
+
+                <input type="radio" name="question3" id="rb2b" value="2">
+                <label for="rb2b" class="btn btn-outline-info box2">Somewhat stable</label>
+
+                <input type="radio" name="question3" id="rb3b" value="3">
+                <label for="rb3b" class="btn btn-outline-info box3">Stable</label>
+
+                <h2 class="secondQ">How much do you want to invest?</h2>
+                <span class="moneySign">$</span>
+                <input type="number" name="amountInvested" class="moneyField" placeholder="Enter amount">
+                <span class="moneySign">CAD</span>
+
+        </div>
+        
+        <input type="submit" name="navButtons" class="btn btn-outline-info next" value="Next" style=""></input>
+
+        </form>
+                
+
+        <form action="/whyinvest" method="get">
+        <input type="submit" name="navButtons" class="btn btn-outline-info back" value="Back" style=""> </input>
+        </form>
+
+    </body>
+
+    <style type="text/css"> 
+        input[name="question1"] {
+            display: none;
+        }
+
+        /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+        input[name="question1"]:hover+label{
+            color: #FFFFFF;
+            text-decoration-color: #FFFFFF
+            border-color: #18A0FB;
+            background: #18A0FB;
+
+            text-decoration: none;
+
+        }
+        input[name="question1"]:checked+label {
+        /* style checked (active button) state as you like */
+            background: #18a0fb;
+            color: rgb(255, 255, 255);
+            border: 1px solid #18a0fb;
+        }
+
+
+        /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+        input[name="navButtons"]:hover {
+            color: #FFFFFF;
+            text-decoration-color: #FFFFFF
+            border-color: #18A0FB;
+            background: #18A0FB;
+
+            text-decoration: none;
+        }
+
+        input[name="question2"] {
+            display: none;
+        }
+
+        /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+        input[name="question2"]:hover+label{
+            color: #FFFFFF;
+            text-decoration-color: #FFFFFF
+            border-color: #18A0FB;
+            background: #18A0FB;
+
+            text-decoration: none;
+
+        }
+        input[name="question2"]:checked+label {
+        /* style checked (active button) state as you like */
+            background: #18a0fb;
+            color: rgb(255, 255, 255);
+            border: 1px solid #18a0fb;
+        }
+
+
+        input[name="question3"] {
+            display: none;
+        }
+
+        /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+        input[name="question3"]:hover+label{
+            color: #FFFFFF;
+            text-decoration-color: #FFFFFF
+            border-color: #18A0FB;
+            background: #18A0FB;
+
+            text-decoration: none;
+
+        }
+        input[name="question3"]:checked+label {
+        /* style checked (active button) state as you like */
+            background: #18a0fb;
+            color: rgb(255, 255, 255);
+            border: 1px solid #18a0fb;
+        }
+         
+        .button-container form,
+        .button-container form div {
+            display: inline;
+        }
+
+        .button-container button {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        h2{
+          font-family: Comfortaa;
+          font-weight: Regular;
+          font-size: 1.75vw;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+         
+    </style>
+
+</html>

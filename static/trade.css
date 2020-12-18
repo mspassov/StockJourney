@@ -1,0 +1,97 @@
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}
+
+body{
+	font-family: Comfortaa;
+	background-color: #FAFAFA;
+}
+
+.btn-info{
+	background-color: #18A0FB;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.magnifyGlass{
+	margin-top: 10px;
+}
+
+.operations{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+h4{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.shareInput{
+	font-size: 18pt;
+	margin-top: 18px;
+}
+
+.shareInput input{
+	width: 100px;
+	margin-bottom: 35px;
+}
+
+.btn-success, .btn-danger{
+	width: 150px;
+}
+
+p{
+	text-align: center;
+	color: red;
+	padding-top: 20px;
+}
+
+.fInfo{
+	text-align: left;
+	color: black;
+	padding-top: 1px;
+}
+
+.sold{
+	text-align: center;
+	color: green;
+	padding-top: 20px;
+}
+
+.far, .fas{
+	color: #001f33;
+	padding-right: 5px;
+}
+
+.card-header{
+	background-color: #e9ecf5;
+	border: 2px solid #c7c7c7;
+}
+
+.chartTitle{
+	font-weight: 700;
+	text-align: center;
+	margin-top: 10px;
+	color: #6c6c6c;
+}
+
+.cardStyling {
+  background: #ffffff;
+  box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  padding: 30px;
+  height: 100%;
+}
+
+
+

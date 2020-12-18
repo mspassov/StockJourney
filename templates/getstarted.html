@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='getstarted.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+	<title>
+        Let's get started!
+    </title>
+    </head>
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#" id="logo">StockJourney</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="{{ url_for('logout') }}" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+              </div>
+            </nav>
+
+                <!-- Welcome message-->
+                <div class="header"> <center>Hi there! Let's create your portfolio.</center></div>
+                <div class="header1"> <center>We'll ask a few questions to get to know you <br>and what your goals are.</center></div>
+
+
+                <form action="{{url_for('whyinvest')}}" method="post">
+                    <button type="submit" class="letsstart"> Let's Start </button>
+                </form>
+
+                <form action="{{ url_for('manual') }}" method="post">
+                    <div><button type = "submit" class="bodytext txtbtn">No thanks, I'm an experienced investor. </button></div>
+                </form>
+</body>
+
+<script>
+
+</script>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trade</title>
+		<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/456acd8253.js" crossorigin="anonymous"></script>
+        <link href="{{ url_for('static', filename='trade.css')}}" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/home" id="logo">StockJourney</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item navBtn">
+                      <a class="nav-link" href="/home">Home</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/portfolio">Portfolio</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/trade">Trade</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/currency">Currency Calculator</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/retirement">Retirement Calculator</a>
+                  </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+              </form>
+          </div>    
+        </nav>
+
+        <br><br>
+        <!-- Search bar -->
+	    <div class="container">
+			<div class="row justify-content-center">
+		        <div class="col-12 col-md-10 col-lg-8">
+
+		            <form class="card card-sm" action=" {{ url_for('stockSearch') }} " method="post">
+		                <div class="card-body row no-gutters align-items-center">
+		                    <div class="col-auto align-items-center">
+		                        <i class="fas fa-search h4 text-body magnifyGlass"></i>
+		                    </div>
+		                    <div class="col">
+		                        <input name="ticker" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search for any ticker or company name">
+		                    </div>
+		                    <div class="col-auto">
+		                        <button class="btn btn-lg btn-info" type="submit">Search</button>
+		                    </div>
+		                </div>
+		            </form>
+
+		        </div>
+		    </div>
+		</div>
+
+		{% if price == -100 %}
+			<p>{{ message }}</p>
+		{% elif price == -49 %}
+			<p class="sold">{{ message }}</p>
+		{% elif price == -20 %}
+			<p class="sold">{{ message }}</p>	
+		{% else %}
+			<br><br>
+		{% endif %}
+
+		<div class="container my-container">
+			<div class="row my-row">
+				<div class="col my-col">
+					<div class="cardStyling">
+						{% if price >= -10 %}
+							<h4> <i class="fas fa-building"></i> &nbsp; <strong>Company Name: </strong> {{ name }} </h4>
+						{% else %}
+							<h4> <i class="fas fa-building"></i> &nbsp; <strong>Company Name: </strong> - </h4>
+						{% endif %}
+
+						{% if price >= -10 %}
+							<h4> <i class="fas fa-th-large"></i> &nbsp; <strong>Ticker: </strong> {{ ticker }} </h4>
+						{% else %}
+							<h4> <i class="fas fa-th-large"></i> &nbsp; <strong>Ticker: </strong> - </h4>
+						{% endif %}
+
+						{% if price >= -10 %}
+							<h4> <i class="fas fa-tags"></i> &nbsp; <strong>Unit Price: </strong> $ {{ price }} </h4>
+						{% else %}
+							<h4> <i class="fas fa-tags fa-sm"></i> &nbsp; <strong>Unit Price: </strong> - </h4>
+						{% endif %}
+
+						<h4> <i class="fas fa-wallet"></i> &nbsp; <strong>Cash Available: </strong>$ {{cash}}</h4>
+
+						{% if price >= -10 %}
+							<h4> <i class="fas fa-suitcase"></i> &nbsp; <strong>Quantity Owned: </strong> {{ quantity }} shares</h4>
+						{% else %}
+							<h4> <i class="fas fa-suitcase"></i> &nbsp; <strong>Quantity Owned: </strong> - </h4>
+						{% endif %}
+
+						<form class="shareInput" action="{{ url_for('executeTrade') }}" method="post" onsubmit="return confirmBox();">
+							<label class="labelA"> <i class="fas fa-check-circle"></i> &nbsp; <strong>Quantity of Shares: </strong></label>
+
+							{% if price >= -10 %}
+								<input type="number" name="numShares" min='1' value="0"><br>
+							{% else %}
+								<input type="number" name="numShares" disabled><br>
+							{% endif %}
+
+						
+							{% if flag == 'false' %}
+								<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Cannot place order because no stock was searched">
+									<button style="background-color: #b1cf82; border-style:none; pointer-events: none" type="submit" class="btn btn-success" name="shareBtn" value="buy" disabled >Buy</button>
+								</span>
+							{% else %}
+								<button  type="submit" class="btn btn-success" name="shareBtn" value="buy" >Buy</button>
+							{% endif %}
+
+							{% if flag == 'false' %}
+								<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Cannot place order because no stock was searched">
+									<button style="background-color: #fca59c; border-style: none; pointer-events: none" type="submit" class="btn btn-danger"  name="shareBtn" value="sell" disabled>Sell</button>
+								</span>
+							{% else %}
+								{% if quantity == 0 %}
+									<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Cannot sell because you do not own this stock">
+										<button style="background-color: #fca59c; border-style:none; pointer-events: none" type="submit" class="btn btn-danger"  name="shareBtn" value="sell" disabled>Sell</button>
+									</span>
+								{% else %}
+									<button type="submit" class="btn btn-danger"  name="shareBtn" value="sell">Sell</button>
+								{% endif %}
+							{% endif %}
+						</form>
+					</div>
+				</div>
+				<div class="col my-col">
+					<div class="cardStyling">
+						<canvas height="1" width="1" id="myChart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br><br>
+
+		<div class="container">
+			<div class="accordion" id="accordionExample">
+				<div class="card">
+					<div class="card-header" id="headingTwo">
+						<h2 class="mb-0">
+						<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Additional Stock Information
+						</button>
+						</h2>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						<div class="card-body">
+							<p class="fInfo"><strong>Average Daily Volume: </strong> {{vol}}</p>
+							<p class="fInfo"><strong>Beta:</strong> {{beta}}</p>
+							<p class="fInfo"><strong>Market Capitalization ($):</strong> {{mcap}}</p>
+							<p class="fInfo"><strong>P/E Multiple: </strong> {{pe}} </p>
+							<p class="fInfo"><strong>Dividend Yield: </strong> {{div}}% </p>
+							<p class="fInfo"><strong>Forward EPS: </strong> {{eps}}</p>
+							<p class="fInfo"><strong>Shares Outstanding: </strong> {{so}} </p>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+			</div>
+		</div>
+		
+		<br><br><br>  
+		<script>
+			function confirmBox(){
+				if(confirm('This action will modify your portfolio holdings, are you sure?')){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+
+
+			var myChart = document.getElementById('myChart').getContext('2d');
+			Chart.defaults.global.defaultFontFamily = 'Comfortaa';
+			
+			let chart = new Chart(myChart, {
+				type: 'line',
+				data:{
+					labels: [
+						{% for item in strDate %}
+							"{{item}}",
+						{% endfor %}
+					],
+
+					datasets: [{
+						label: 'Share Price',
+						data: [
+							{% for item in myList %}
+							"{{item}}",
+							{% endfor %}
+						],
+						backgroundColor: '{{ bgColor }}',
+						borderWidth: 1,
+						borderColor: ' {{ borderColor }}',
+						hoverBorderWidth: 2
+					}]
+				},
+				options: {
+					scales: {
+						xAxes:[{
+							ticks:{
+								autoSkip: true,
+								maxTicksLimit: 15
+							},
+							scaleLabel:{
+								display: true,
+								labelString: 'Date',
+								fontSize: 18
+							}
+						}],
+
+						yAxes:[{
+							scaleLabel:{
+								display:true,
+								labelString: 'Share Price ($)',
+								fontSize: 18
+							}
+						}]
+					},
+
+					legend:{
+						display: false,
+
+					},
+
+					title:{
+						display: true,
+						text: '{{name}} Historical Stock Price',
+						fontFamily: 'Comfortaa',
+						fontSize: 24
+					}
+
+				}
+			});
+
+			$(document).ready(function(){
+  				$('[data-toggle="tooltip"]').tooltip();
+			});
+
+		</script>
+
+	</body>
+</html>
+

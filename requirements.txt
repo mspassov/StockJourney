@@ -1,0 +1,9 @@
+Flask
+Flask-Session
+psycopg2-binary
+SQLAlchemy
+requests
+yfinance
+flask_table
+googlesearch-python
+gunicorn

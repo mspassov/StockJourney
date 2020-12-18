@@ -1,0 +1,88 @@
+<!DOCTYPE html><html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profiles.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <title>
+        Why Invest
+    </title>
+    </head>
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#" id="logo">StockJourney</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+              </div>
+            </nav>
+
+
+               <!-- Profile Box buttons-->
+                <div class="header"> <center>Why are you investing?</center></div>
+                <form action="{{ url_for('questions') }}"  method="post">
+
+                <input type="radio" checked="checked" name="optionSelect" class="btn btn-outline-info box1" id="rb1" value="3">
+                <label for="rb1" class="btnO btn-outline-info box1"> <br><br>For retirement<br><br><span style="font-size: 1vw;">I want to save for <br> the future and steadily <br> grow my savings.</span></label>
+
+                <input type="radio" name="optionSelect" class="btn btn-outline-info box2" id="rb2" value="2">
+                <label for="rb2" class="btnO btn-outline-info box2"> <br><br>For a large purchase<br><br><span style="font-size: 1vw;">I'm saving up for a large <br> purchase that I'll be making in <br> the short to medium term.</span></label>
+
+                <input type="radio" name="optionSelect" class="btn btn-outline-info box3" id="rb3" value="1">
+                <label for="rb3" class="btnO btn-outline-info box3"> <br><br>To learn about finance<br><br><span style="font-size: 1vw;">I want to learn about <br> investing through  <br> hands-on experience.</span></label>
+
+                <!-- Next button goes to questions.html as placeholder page for now -->
+                <input type="submit" name="navButtons" class="btn btn-outline-info next" value="Next"></input>
+                </form>
+
+                <form action="{{ url_for('startPage') }}" method="post">
+                    <input type="submit" name="navButtons" class="btn btn-outline-info back" value="Back"></input>
+                </form>
+
+        </body>
+
+<!-- Additional styling to force button hovering change -->
+<style type="text/css"> 
+
+    input[name="optionSelect"] {
+        display: none;
+    }
+
+    /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+    input[name="optionSelect"]:hover+label{
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF
+        border-color: #18A0FB;
+        background: #18A0FB;
+
+        text-decoration: none;
+
+    }
+    input[name="optionSelect"]:checked+label {
+    /* style checked (active button) state as you like */
+        background: #18a0fb;
+        color: rgb(255, 255, 255);
+        border: 1px solid #18a0fb;
+    }
+
+
+    /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+    input[name="navButtons"]:hover {
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF
+        border-color: #18A0FB;
+        background: #18A0FB;
+
+        text-decoration: none;
+        }
+</style>
+
+</html>

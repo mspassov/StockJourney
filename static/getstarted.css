@@ -1,0 +1,78 @@
+.header {
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 18%;
+  margin: auto;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 2.5vw;
+  opacity: 1;
+  text-align: center;
+}
+
+
+.q1 {
+  color: rgba(0, 0, 0, 0.800000011920929);
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+  opacity: 1;
+  text-align: left;
+}
+
+.letsstart {
+    width: 10%;
+    height: 5%;
+    background: #18a0fb;
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    font-family: Comfortaa;
+    font-weight: Regular;
+    font-size: 1vw;
+    border: 1px solid #18a0fb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.header1 {
+    width: 100%;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 38%;
+    margin: auto;
+    font-family: Comfortaa;
+    font-weight: Regular;
+    font-size: 1.5vw;
+    opacity: 1;
+    text-align: center;
+}
+
+.bodytext {
+    width: 100%;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 75%;
+    margin: auto;
+    font-family: Comfortaa;
+    font-weight: Regular;
+    font-size: 1vw;
+    opacity: 1;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.txtbtn {
+  border: none;
+  background-color: white;
+}
+
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}

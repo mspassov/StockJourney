@@ -1,0 +1,330 @@
+<!-- trial -->
+<!DOCTYPE html><html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='currency.css')}}">
+
+    <!-- JQUERY INSTALL CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- <script src="./jquery-3.0.0.js"> </script> -->
+    <!-- SELECT2 PLUGIN -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    
+
+	<title>
+        Currency Converter
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script> $(".ui.dropdown").dropdown();</script>
+
+
+    </head>
+        <body style="background-color: #FAFAFA;">
+
+         <!-- Dropdown I Script -->
+        <script>
+        $(document).ready(function(){
+          $("#baseSelect").select2({
+           templateResult: formatState
+          });
+          $("#toSelect").select2({
+           templateResult: formatState
+          });
+         });
+         
+         function formatState (state) {
+          if (!state.id) { return state.text; }
+          var $state = $(
+           '<span ><img style="display: inline-block; width: 20px; margin-right: 5px;" src="../static/images/currencies/' + state.element.value.toUpperCase() + '.png" /> ' + state.text + '</span>'
+          );
+          return $state;
+         }
+
+        </script>
+
+        <style type="text/css">
+        /* Get rid of arrows on amount input */
+        input::-webkit-outer-spin-button,
+		    input::-webkit-inner-spin-button {
+		    -webkit-appearance: none;
+		    margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+  			-moz-appearance: textfield;
+		}
+
+		/* Overall font family */
+		* {
+			font-family: Comfortaa;
+		}
+
+	/* Card Containers */
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 250px;
+      padding: 0 10px;
+    }
+
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+      padding: 10px;
+      text-align: center;
+      width: 15rem;
+      height: 20rem;
+      background-color: #FFFFFF;
+    }
+
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 600px;
+        display: block;
+        margin-bottom: 20px;
+      }
+		}
+
+        </style>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/home" id="logo">StockJourney</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item navBtn">
+                      <a class="nav-link" href="/home">Home</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/portfolio">Portfolio</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/trade">Trade</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/currency">Currency Calculator</a>
+                  </li>
+                  <li class="nav-item navBtn">
+                          <a class="nav-link" href="/retirement">Retirement Calculator</a>
+                  </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+              </form>
+          </div>    
+        </nav>
+
+
+              <!-- Currency CODE -->
+              <br><br><br>
+              <div class="container">
+              <center> 
+                <header style="font-style: Comfortaa; font-size: 3.5vw;"> Currency Calculator </header> 
+              </center>
+              <br><br>
+
+              <form method="POST">
+                    
+                    <!-- AMOUNT -->
+                    <div class="cardStyling" style="text-align:center; font-family: Comfortaa;">
+                    <div>
+                      <center>
+                        <label id="amount" style=" padding-right:1.8%; font-size: 1.5vw"> Amount: </label>
+                        <input type="number" name="amount" class="amountbox" style="width:20%; font-size: 1vw" placeholder="Value">
+                      </center>
+                    </div>
+                        
+                    <br>
+
+                    <!-- BASE CURRENCY -->
+                    <div>
+                      <center>              
+                        <label for="base" id="baseLabel" style="padding-right:4%; font-size: 1.5vw"> From: </label>
+                        <select name='base' id='baseSelect' style="width:20%; font-size: 1vw" class="js-example-basic-single js-states form-control">
+                            <option value='AUD' > AUD </option>
+                            <option value='BGN'> BGN </option>
+                            <option value='BRL'> BRL </option>
+                            <option value='CAD'> CAD </option>
+                            <option value='CHF'> CHF </option>
+                            <option value='CNY'> CNY </option>
+                            <option value='CZK'> CZK </option>
+                            <option value='DKK'> DKK </option>
+                            <option value='EUR'> EUR </option>  <!-- Base for API = 1 -->
+                            <option value='GBP'> GBP </option>
+                            <option value='HRK'> HRK </option>
+                            <option value='HUF'> HUF </option>
+                            <option value='HKD'> HKD </option>
+                            <option value='IDR'> IDR </option>
+                            <option value='ILS'> ILS </option>
+                            <option value='INR'> INR </option>
+                            <option value='ISK'> ISK </option>
+                            <option value='JPY'> JPY </option>
+                            <option value='KRW'> KRW </option>
+                            <option value='MXN'> MXN </option>
+                            <option value='MYR'> MYR </option>
+                            <option value='NOK'> NOK </option>
+                            <option value='NZD'> NZD </option>
+                            <option value='PHP'> PHP </option>
+                            <option value='PLN'> PLN </option>
+                            <option value='RON'> RON </option>
+                            <option value='RUB'> RUB </option>
+                            <option value='SEK'> SEK </option>
+                            <option value='SGD'> SGD </option>
+                            <option value='THB'> THB </option>
+                            <option value='TRY'> TRY </option>
+                            <option value='USD'> USD </option>
+                            <option value='ZAR'> ZAR </option>
+                        </select>
+                      </center>
+                    </div>
+
+                    <br>
+
+
+                    <!-- TO CURRENCY -->
+                    <div>
+                      <center>
+                        <label for="to" id="toLabel" style="padding-right:6%; font-size: 1.5vw"> To: </label>
+                        <select name='to' id='toSelect' style="width:20%; font-size:1.5vw" class="js-example-basic-single js-states form-control">
+                            <option value='AUD'> AUD </option>
+                            <option value='BGN'> BGN </option>
+                            <option value='BRL'> BRL </option>
+                            <option value='CAD'> CAD </option>
+                            <option value='CHF'> CHF </option>
+                            <option value='CNY'> CNY </option>
+                            <option value='CZK'> CZK </option>
+                            <option value='DKK'> DKK </option>
+                            <option value='EUR'> EUR </option>  <!-- Base for API = 1 -->
+                            <option value='GBP'> GBP </option>
+                            <option value='HRK'> HRK </option>
+                            <option value='HUF'> HUF </option>
+                            <option value='HKD'> HKD </option>
+                            <option value='IDR'> IDR </option>
+                            <option value='ILS'> ILS </option>
+                            <option value='INR'> INR </option>
+                            <option value='ISK'> ISK </option>
+                            <option value='JPY'> JPY </option>
+                            <option value='KRW'> KRW </option>
+                            <option value='MXN'> MXN </option>
+                            <option value='MYR'> MYR </option>
+                            <option value='NOK'> NOK </option>
+                            <option value='NZD'> NZD </option>
+                            <option value='PHP'> PHP </option>
+                            <option value='PLN'> PLN </option>
+                            <option value='RON'> RON </option>
+                            <option value='RUB'> RUB </option>
+                            <option value='SEK'> SEK </option>
+                            <option value='SGD'> SGD </option>
+                            <option value='THB'> THB </option>
+                            <option value='TRY'> TRY </option>
+                            <option value='USD'> USD </option>
+                            <option value='ZAR'> ZAR </option>
+                        </select>
+                      </center>
+                    </div>
+
+                    <br>
+
+                    <center>
+                    <input type="submit" name="navButtons" class="btn btn-outline-info" value="Convert" style="top:55%; font-size: 1vw; width:30%; position:relative;"></input>
+                  </center>
+              </div>
+                
+                <br><br><br>
+                <!-- Output Messags CODE -->
+                <div class="cardStyling" style="text-align:center; font-family: Comfortaa;">
+                <div style="text-align: center;">
+                  <h5 style="font-size: 2vw;"> {{ amount }} {{ base }} =</h5>
+                  <h6 style="font-size: 3.5vw;"> {{ outputAmount }} {{ to }}</h6>
+                  <br>
+                  <h7 style="font-size: 1.5vw;"> 1 {{ base }} = {{ outputBaseAmount1 }} {{ to }}</h7>
+                  <br>
+                  <h8 style="font-size: 1.5vw;"> 1 {{ to }} = {{ outputToAmount1 }} {{ base }}</h8>
+                </div>
+            	</div>
+
+                </form>
+
+                <br><br><br>
+                
+                <!-- Currency News CODE -->
+                <center> 
+                <header style="font-style: Comfortaa; font-size: 3.5vw;"> Currency News </header> 
+                </center>
+                <br><br>
+                
+                <form method="POST">
+
+
+                <div class="cardStyling" style="text-align:center; font-family: Comfortaa;">                 
+                  <div style="display: flex; justify-content: center; flex-direction: row;"> <!-- Div for the Cards -->
+                    <div class="row">
+
+                      <div class="column">
+                        <div class="card">
+                          <a href="{{ news1URL }}" target="_blank" style="color: black; text-decoration: none;">
+	                          <img class="card-img-top" src="{{ news1Img }}" alt="Card image cap" style="width:13.5em; height:7.5em;">
+	                          <div class="card-body">
+	                            <p class="card-text"> {{ news1Title }}</p>
+	                          </div>
+                      	  </a>
+                        </div>
+                      </div>
+
+                      <div class="column"> 
+                        <div class="card">
+                          <a href="{{ news2URL }}" target="_blank" style="color: black; text-decoration: none;">
+	                          <img class="card-img-top" src="{{ news2Img }}" alt="Card image cap" style="width:13.5em; height:7.5em;">
+	                          <div class="card-body">
+	                            <p class="card-text"> {{ news2Title }}</p>
+	                          </div>
+                      	  </a>
+                        </div>
+                      </div>
+
+                    <div class="column"> 
+                      <div class="card">
+                        <a href="{{ news3URL }}" target="_blank" style="color: black; text-decoration: none;">
+	                        <img class="card-img-top" src="{{ news3Img }}" alt="Card image cap" style="width:13.5em; height:7.5em;">
+	                        <div class="card-body">
+	                          <p class="card-text"> {{ news3Title }}</p>
+	                        </div>
+                    	</a>
+                      </div>
+                    </div>
+
+                    <div class="column"> 
+                      <div class="card">
+                        <a href="{{ news4URL }}" target="_blank" style="color: black; text-decoration: none;">
+	                        <img class="card-img-top" src="{{ news4Img }}" alt="Card image cap" style="width:13.5em; height:7.5em;">
+	                        <div class="card-body">
+	                          <p class="card-text"> {{ news4Title }}</p>
+	                        </div>
+                    	</a>
+                      </div>
+                    </div>
+                  </div> <!-- End of Div for the Cards-->
+              </div>
+
+                </form>
+
+            </div>   <!-- End of currency code -->
+            <br><br><br>
+        </div>
+
+        </body>
+</html>

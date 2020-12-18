@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+        <link href="{{ url_for('static', filename='recommendations.css')}}" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <title>Recommended portfolio</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#" id="logo">StockJourney</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+              </div>
+        </nav>
+
+
+
+        <h1 class="header">We recommend the following assets <br> and allocations that aligns with your risk profile:</h1>
+            <div class="container">
+                <form action="/dashboard" method="post" name="FormName" onsubmit="return checkFunction();">
+                    <div class="row justify-content-center align-items-center myrow2">
+                        <div class="col-4 mycol2" style="padding:0%">
+                            <h6 class="headerC">Description</h6>
+                        </div>
+                        <div class="col-1 mycol2">
+                            <h6 class="headerC">Ticker</h6>
+                        </div>
+                        <div class="col-1 mycol2">
+                            <h6 class="headerC">%</h6>
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center align-items-center myrow">
+                        <div class="col-4 mycol colFirst">
+                            Diversified Bond Index
+                        </div>
+                        <div class="col-1  mycol">
+                            <div class="ticker">ZAG</div>
+                        </div>
+                        <div class="col-1 mycol">
+                                <input id="p1" min="0" class="form-control" type="number" style="font-size: 1vw" name="zag" value="{{zag}}" id="example-number-input"  onchange="myFunction()">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center myrow">
+                        <div class="col-4 mycol colFirst">
+                            Canadian Total Market Index
+                        </div>
+                        <div class="col-1 mycol">
+                            <div class="ticker">VFV</div>
+                        </div>
+                        <div class="col-1 mycol">
+                            <input id="p2" min="0" class="form-control" type="number" style="font-size: 1vw" name="vfv" value="{{vfv}}" id="example-number-input"  onchange="myFunction()">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center myrow">
+                        <div class="col-4 mycol colFirst">
+                            USA Total Market Index
+                        </div>
+                        <div class="col-1 mycol">
+                            <div class="ticker">XUU</div>
+                        </div>
+                        <div class="col-1 mycol">
+                            <input id="p3" min="0" class="form-control" type="number" style="font-size: 1vw" name="xuu" value="{{xuu}}" id="example-number-input"  onchange="myFunction()">
+                        </div>
+                    </div>
+                    <div class="row rowLast justify-content-center align-items-center myrow">
+                        <div class="col-4 mycol colFirst">
+                            International Total Market Index
+                        </div>
+                        <div class="col-1 mycol">
+                            <div class="ticker">XEF </div>
+                        </div>
+                        <div class="col-1 mycol">
+                            <input id="p4" min="0" class="form-control" type="number" style="font-size: 1vw" name="xef" value="{{xef}}" id="example-number-input"  onchange="myFunction()">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center myrow">
+                        <div class="col-4 mycol">
+                            
+                        </div>
+                        <div class="col-1 mycol">
+                            
+                        </div>
+                        <div class="col-1 fullPie" id='displayP'>
+                            100%
+                        </div>
+                    </div>
+                </div>
+                    <!--Submission button -->
+                    <input type="submit" name="navButtons" class="btn btn-outline-info next" value="Finish"></input>
+            </form>
+
+        <form action="/home" method="post">
+            <a href='/home' class="text">No thanks, I want to create my own portfolio</a>
+        </form>
+
+        <form action="/profilerecommend" method="get">
+            <input type="submit" name="navButtons" class="btn btn-outline-info back" value="Back"></input>
+        </form>
+        
+        <script type="text/javascript">
+            var sum = 0;
+            function myFunction(){
+                var value1 = parseInt(document.forms["FormName"]["p1"].value, 10);
+                var value2 = parseInt(document.forms["FormName"]["p2"].value, 10);
+                var value3 = parseInt(document.forms["FormName"]["p3"].value, 10);
+                var value4 = parseInt(document.forms["FormName"]["p4"].value, 10);
+
+                sum = value1 + value2 + value3 + value4;
+                document.getElementById("displayP").innerHTML = sum + "%";
+            }
+
+            function checkFunction(){
+                if (sum > 100){
+                    alert('Cannot exceed 100%');
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+
+        </script>
+
+    </body>
+
+</html>

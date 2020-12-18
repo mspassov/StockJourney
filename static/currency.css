@@ -1,0 +1,291 @@
+empty {
+  top: 200px;
+}
+.name {
+  color: #18A0FB;
+}
+
+.header {
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 18%;
+  margin: auto;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 2.5vw;
+  opacity: 1;
+  text-align: center;
+}
+
+h2 {
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+
+}
+
+.btnO {
+  display: inline-block;
+  font-weight: 400;
+  color: #18A0FB18A0FB !important;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+.btn:hover {
+  color: #FFFFFF !important;
+  text-decoration-color: #FFFFFF !important;
+  border-color: #18A0FB !important;
+  background: #18A0FB !important;
+
+  text-decoration: none;
+}
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: #000000;
+}
+.btn.disabled, .btn:disabled {
+  opacity: 0.65;
+}
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+.btn-outline-info {
+  color: #18A0FB !important;
+  border-color: #18A0FB !important;
+  background-color: #FFFFFF !important;
+
+}
+
+.box1 {
+  width: 20%;
+  height: 43%;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+}
+
+
+.box2 {
+  width: 20%;
+  height: 43%;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+}
+
+.box3 {
+  width: 20%;
+  height: 43%;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+display: inline-block; margin-right: 20px;
+}
+
+
+.text{
+  top: 79%;
+  left: 34%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  color: rgb(0, 0, 0, 0.800000011920929);
+  font-size: 1.25vw;
+  position: absolute;
+}
+
+.text1{
+  top: 90%;
+  left: 30%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  color: rgb(0, 0, 0, 0.800000011920929);
+  font-size: 1.25vw;
+  position: absolute;
+}
+
+.invest {
+  color: rgba(0, 0, 0, 0.800000011920929);
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.15vw;
+  text-align: left;
+}
+
+.moneysign {
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 75%;
+  left: 57%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.15vw;
+  text-align: left;
+}
+.inputbox {
+  width: 15%;
+  height: 3%;
+  background: rgb(255, 255, 255);
+  color: rgb(97, 97, 97);
+  opacity: 1;
+  position: absolute;
+  top: 75%;
+  left: 60%;
+  border: 1px solid rgba(0, 0, 0, 1);
+  overflow: hidden;
+  font-size: 1.15vw;
+  vertical-align: center;
+  text-align: start;
+}
+.cad {
+  width: 68px;
+  color: rgba(51, 51, 51, 1);
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  font-family: Comfortaa;
+  font-weight: Medium;
+  font-size: 1.15vw;
+  text-align: center;
+}
+
+.back {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18A0FB;
+  position: absolute;
+  top: 85%;
+  left: 5%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18A0FB;
+  border-radius: 5px;
+  text-align: center;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.back:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+
+  text-decoration: none;
+}
+
+.next {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18a0fb;
+  position: absolute;
+  top: 85%;
+  left: 85%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18a0fb;
+  border-radius: 5px;
+  text-align: center;
+
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.next:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+
+  text-decoration: none;
+}
+
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}
+
+
+.container1 {
+  position: absolute;
+  top: 31%;
+  left: 0%;
+  width:100%;
+  
+}
+
+.container2 {
+  position: absolute;
+  top: 32%;
+  left: 35%;
+  width:100%;
+}
+
+.container3 {
+  position: absolute;
+  top: 71%;
+  width:100%;  
+  text-align: center;
+
+}
+
+.cardStyling {
+  background: #ffffff;
+  box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  height: 100%;
+}
+
+.wrapper {
+  height: 500px !important;
+
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+}

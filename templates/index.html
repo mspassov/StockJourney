@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Landing Page</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <!--Our stylesheet -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index_styles.css')}}">
+
+        <!-- Font Awesome icons -->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
+		<!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+     
+		<!-- Bootstrap link -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		
+	</head>
+
+	<body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <h2 style="color:gainsboro;" id="logo"><strong>StockJourney</strong></h2>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url_for('login') }}">login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url_for('register')}}">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading text-uppercase">MAKE YOUR MONEY WORK FOR YOU.</div>
+                <a class="btn btn-secondary btn-xl text-uppercase js-scroll-trigger" href="#services">Learn More</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-left mt-3">
+                    <h2 class="section-heading">Investing can be hard.</h2>
+                    <h3 class="section-subheading text-muted">At StockJourney, we understand the difficulties that come from investing. We offer the following services to help the everyday investor.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-dollar-sign fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Reccomendations</h4>
+                        <p class="text-muted">Tell us a little about yourself, and we will help you figure out what to buy.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Market Monitoring</h4>
+                        <p class="text-muted">StockJourney pulls a wide variety of stock and currency data to help you maintain your portfolio.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-newspaper fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Retirement Planning</h4>
+                        <p class="text-muted">StockJourney gives you the information you need to make smart decisions about your retirement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        </section>
+        {% if check == "registered" %}
+            <div id="overlay">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Registered!</h5>
+                        <p class="card-text">Thank you for registering for StockDaddy, you may now login</p>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Close</a>
+                      </div>
+                    </div>
+            </div>
+        {% endif %}
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!-- Core theme JS-->
+		<script src="{{ url_for('static', filename='index_js.js') }}"></script>
+    </body>
+<footer class="page-footer font-small black">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright HCI Group 6
+    </div>
+</footer>
+ 
+</html>

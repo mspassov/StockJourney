@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Register</title>
+		<!-- Bootstrap link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index_styles.css')}}">
+		<link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+        <style>
+        h1 {
+            font-family: 'Comfortaa';font-size: 29pt; font-weight: 300; margin-bottom: 50px;
+		}
+		h2 {
+            font-family: 'Comfortaa';font-size: 18pt; font-weight:700; margin-bottom: 20px; margin-top: 30px;
+
+		}
+		.btn {
+			font-family: 'Comfortaa';
+
+		}
+		.firstname, .lastname, .password, .confirmpassword, .emailaddress {
+			font-family: 'Comfortaa';
+			font-size: 15px;
+
+		}
+
+		.container p{
+			padding-top: 5px;
+			font-size: 16px;
+			color: red;
+		}
+
+        </style>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+		  </header>
+            <div class="container-fluid registration-page">
+                <div class="row text-center flex-grow-1">
+                    <div class="col-md-4 login-box align-items-center">
+						<div class="login-text">
+                        <h1 class="my-2">Welcome Back!</h4>
+							<a href="{{ url_for('login') }}"><button type="button" class="btn btn-outline-info login-button">Log in</button></a>
+						</div>
+                    </div>
+                    <div class="col-md-8 register-box">
+                    	<form action="{{url_for('registerComplete')}}" method="post">
+							<div class="container registration-text">
+								<h2 class="my-2">Sign up for a free account</h2>
+									<div class="container">
+										<input name="fname" class="firstname" type="text" placeholder="First Name *" />
+										<input name="lname" class="lastname" type="text" placeholder="Last Name *" />
+									</div>
+									<div class="container">
+										<input name="username" class="emailaddress" type="text" placeholder="Username *" />
+									</div>
+									<div class="container">
+										<input name="password" class="password" type="password" placeholder="Create password *" />
+									</div>
+									<div class="container">
+										<input name="cpassword" class="confirmpassword" type="password" placeholder="Confirm password *" />
+									</div>
+									<div class="container">
+										<button class="btn btn-outline-inverse register-button">Create account</button>
+										<p>{{ message }}</p>
+									</div>
+							</div>
+						</form>
+                    </div>
+            </div>
+        </section>
+	</body>
+	
+</html>

@@ -1,0 +1,111 @@
+.header {
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 45px;
+  margin-bottom: 42px;
+  font-family: Comfortaa;
+  padding-top: 2.5%;
+  font-weight: Regular;
+  font-size: 2.5vw;
+  opacity: 1;
+  text-align: center;
+}
+
+h2{
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.75vw;
+}
+
+
+.boxed label{
+  display: inline-block;
+  width: 315px;
+  height: 50px;
+  padding-top: 15px;
+  border: 1px solid #18a0fb;
+  transition: all 0.3s;
+  text-align: center;
+  margin-right: 40px;
+  margin-top: 10px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+}
+
+.boxed input[type="radio"] {
+  display: none;
+}
+
+.boxed input[type="radio"]:checked + label {
+  border: 1px solid #18a0fb;
+}
+
+.secondQ{
+  padding-top: 50px;
+}
+
+.moneyField{
+  height: 40px;
+  width: 250px;
+  font-family: Comfortaa;
+  font-size: 16pt;
+  margin-top: 10px;
+}
+
+.moneySign{
+  font-family: Comfortaa;
+  font-size: 16pt;
+  margin-top: 10px;
+}
+
+.next {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18a0fb;
+  position:relative;
+  margin-top:5%;
+  margin-left:85%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18a0fb;
+  border-radius: 5px;
+  text-align: center;
+
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.back {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18a0fb;
+  position:relative;
+  margin-top:-5%;
+  margin-left:5%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18a0fb;
+  border-radius: 5px;
+  text-align: center;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+
+  text-decoration: none;
+}
+
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}

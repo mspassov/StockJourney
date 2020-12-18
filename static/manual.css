@@ -1,0 +1,103 @@
+.header {
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 15%;
+  margin: auto;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 2.5vw;
+  opacity: 1;
+  text-align: center;
+}
+
+.box1 {
+  width: 20%;
+  height: 40%;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+}
+
+
+.box2 {
+  width: 20%;
+  height: 40%;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+}
+
+.box3 {
+  width: 20%;
+  height: 40%;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1.5vw;
+}
+
+.secondQ{
+  padding-top: 50px;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left:36%;
+  top: 70%;
+}
+
+#logo{
+  font-family: 'Righteous', cursive;
+  font-size: 20pt;
+}
+
+.moneyInput{
+	position: absolute;
+	top: 85%;
+	left: 39%;
+}
+
+.moneySign{
+	font-size: 20pt;
+}
+
+input[type="number"]{
+	font-size: 16pt;
+}
+
+.next {
+  width: 10%;
+  height: 5%;
+  background: rgb(255, 255, 255);
+  color: #18a0fb;
+  position: absolute;
+  top: 90%;
+  left: 85%;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 1vw;
+  border: 1px solid #18a0fb;
+  border-radius: 5px;
+  text-align: center;
+
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.next:hover {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF
+  border-color: #18A0FB;
+  background: #18A0FB;
+
+  text-decoration: none;
+}

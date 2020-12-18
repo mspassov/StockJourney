@@ -1,0 +1,84 @@
+<!DOCTYPE html><html>
+<head>
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profiles.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet'>
+    <title>
+        profilemanual
+    </title>
+    </head>
+        <body>
+
+                <!-- Profile Box buttons-->
+                <div class="header"> <center>Based on your answers, we think that you are:</center></div>
+
+                <form action="{{ url_for('profileChosen') }}"  method="post">
+
+                <input type="radio" name="profileSelect" class="btn btn-outline-info box1" id="rb1" value="profile1">
+                <label for="rb1" class="btn btn-outline-info box1"> <br><br><br> Risk Profile 1 <br><br><br>Description</label>
+
+                <input type="radio" name="profileSelect" class="btn btn-outline-info box2" id="rb2" value="profile2">
+                <label for="rb2" class="btn btn-outline-info box2"> <br><br><br> Risk Profile 2 <br><br><br>Description</label>
+
+                <input type="radio" name="profileSelect" class="btn btn-outline-info box3" id="rb3" value="profile3">
+                <label for="rb3" class="btn btn-outline-info box3"> <br><br><br> Risk Profile 3 <br><br><br>Description</label>
+
+
+                <!-- Invest textbox: placeholder cannot enter amount-->
+                <span class="invest">How much do you want to invest?</span>
+                <span class="moneysign">$</span>
+                <input type="number" name="amntInp" class="inputbox" placeholder="Enter amount">
+                <span class="cad">CAD</span>
+
+                <!-- Next button goes to profileChosen.html as placeholder page for now -->
+                <input type="submit" name="navButtons" class="btn btn-outline-info next" value="Next"></input>
+                </form>
+            
+
+
+                <!-- Routing to homepage as placeholder for back button -->
+                <form action="/">
+                <input type="submit" name="navButtons" class="btn btn-outline-info back" value="Back"> </input>
+                </form>
+</body>
+
+
+
+<!-- Additional styling to force button hovering change -->
+<style type="text/css"> 
+
+    input[name="profileSelect"] {
+        display: none;
+    }
+
+    /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+    input[name="profileSelect"]:hover+label{
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF
+        border-color: #18A0FB;
+        background: #18A0FB;
+
+        text-decoration: none;
+
+    }
+    input[name="profileSelect"]:checked+label {
+    /* style checked (active button) state as you like */
+        background: #18a0fb;
+        color: rgb(255, 255, 255);
+        border: 1px solid #18a0fb;
+    }
+
+
+    /*Copied from css of .btn:hover ... doesn't show correct hover color otherwise... (in black instead)*/
+    input[name="navButtons"]:hover {
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF
+        border-color: #18A0FB;
+        background: #18A0FB;
+
+        text-decoration: none;
+        }
+</style>
+
+</html>
