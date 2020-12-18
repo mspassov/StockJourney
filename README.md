@@ -1,1 +1,1 @@
-# StockDaddy - HCI Project
+# StockJourney - A Visual Portfolio Tracker
