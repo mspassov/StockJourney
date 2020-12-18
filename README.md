@@ -17,4 +17,4 @@ The list of features that StockJourney supports:
 
 ##### The Technical Stuff
 The website was created using a Python (flask) backend with an HTML/CSS/JS/Bootstrap front end. A PostgreSQL database was created, hosted on Heroku. 
-The yahoo finance api was used to gather stock infromation. News API was used for news stories, and Fixer.io API was used for currency quotes.
+The yahoo finance api was used to gather stock information. News API was used for news stories, and Fixer.io API was used for currency quotes.
